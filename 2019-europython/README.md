@@ -16,7 +16,7 @@ Working with datasets comprising millions or billions of samples is an increasin
 Applying the combined benefits of computational graphs, which are common in neural network libraries, with delayed (a.k.a lazy) evaluations to a DataFrame library enables efficient memory and CPU usage. Together with memory-mapped storage (Apache Arrow, hdf5) and out-of-core algorithms, we can process considerably larger data sets with fewer resources. As an added bonus, the computational graphs ‘remember’ all operations applied to a DataFrame, meaning that data processing pipelines can be generated automatically.
 
 [![Modern Data Science with Vaex: A new approach to DataFrames and pipelines  | EuroPython 2019 | Jovan Veljanoski
-](https://www.youtube.com/watch?v=XDy_3oiAKsk&t=2h51m31s "Modern Data Science with Vaex: A new approach to DataFrames and pipelines  | EuroPython 2019 | Jovan Veljanoski
+](https://www.youtube.com/watch?v=XDy_3oiAKsk&t=2h55m31s)](https://www.youtube.com/watch?v=XDy_3oiAKsk&t=2h51m31s "Modern Data Science with Vaex: A new approach to DataFrames and pipelines  | EuroPython 2019 | Jovan Veljanoski
 ")
 
 ## Slides

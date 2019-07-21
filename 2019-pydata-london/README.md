@@ -2,8 +2,8 @@
 
 
 ## Notebooks
- * [PyData-London-2019-vaex-EDA-ML.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/eupy-2019/2019-pydata-london/PyData-London-2019-vaex-EDA-ML.ipynb)
- * [PyData-London-2019-vaex-EDA-ML-2.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/eupy-2019/2019-pydata-london/PyData-London-2019-vaex-EDA-ML-2.ipynb)
+ * [PyData-London-2019-vaex-EDA-ML.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-pydata-london/PyData-London-2019-vaex-EDA-ML.ipynb)
+ * [PyData-London-2019-vaex-EDA-ML-2.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-pydata-london/PyData-London-2019-vaex-EDA-ML-2.ipynb)
 
 
 ## Video recording from PyData London 2019

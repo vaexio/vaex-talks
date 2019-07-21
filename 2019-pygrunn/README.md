@@ -2,10 +2,10 @@
 
 
 ## Notebooks
- * [pygrunn-vaex-part-1-Intro.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-europython/pygrunn-vaex-part-1-Intro.ipynb)
- * [pygrunn-vaex-part-2-EDA.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-europython/pygrunn-vaex-part-2-EDA.ipynb)
- * [pygrunn-vaex-part-3-ML.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-europython/pygrunn-vaex-part-3-ML.ipynb)
- * [pygrunn-vaex-part-4-ML.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-europython/pygrunn-vaex-part-4-ML.ipynb)
+ * [pygrunn-vaex-part-1-Intro.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-pygrunn/pygrunn-vaex-part-1-Intro.ipynb)
+ * [pygrunn-vaex-part-2-EDA.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-pygrunn/pygrunn-vaex-part-2-EDA.ipynb)
+ * [pygrunn-vaex-part-3-ML.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-pygrunn/pygrunn-vaex-part-3-ML.ipynb)
+ * [pygrunn-vaex-part-4-ML.ipynb](https://nbviewer.jupyter.org/github/vaexio/vaex-talks/blob/master/2019-pygrunn/pygrunn-vaex-part-4-ML.ipynb)
 
 
 ## Video recording from PyGrunn 2019

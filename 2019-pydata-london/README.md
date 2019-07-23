@@ -13,7 +13,7 @@
 We show how to deal with massive datasets using small resources using the Python Vaex DataFrame library. Using computational graphs, efficient algorithms and storage (Apache Arrow / hdf5) Vaex can easily handle up to a billion rows, even on your laptop. As a bonus, Vaex can automatically generate a Machine Learning pipeline using the graph structure build-up internally in the DataFrame.
 
 [![Modern Data Science with Vaex: A new approach to DataFrames and pipelines  | PyData London 2019 | Maarten Breddels & Jovan Veljanoski
-](https://www.youtube.com/watch?v=2Tt0i823-ec)](https://www.youtube.com/watch?v=2Tt0i823-ec "Modern Data Science with Vaex: A new approach to DataFrames and pipelines  | PyData London 2019 | Maarten Breddels & Jovan Veljanoski
+](https://img.youtube.com/vi/2Tt0i823-ec/0.jpg)](https://www.youtube.com/watch?v=2Tt0i823-ec "Modern Data Science with Vaex: A new approach to DataFrames and pipelines  | PyData London 2019 | Maarten Breddels & Jovan Veljanoski
 ")
 
 ## Slides

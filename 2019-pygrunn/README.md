@@ -15,7 +15,7 @@
 This talk will focus on the primary concepts enabling the analysis of large datasets on a local machine which are: expression graphs, memory-mappable storage (Apache Arrow, hdf5), and out-of-core algorithms. These concepts are embodied in Vaex, an open-source Python DataFrame library enabling the exploration, visualization and machine learning of large datasets even on your laptop.
 
 [![Vaex: 1 billion rows, 1 laptop, serious data science  | EuroPython 2019 | Jovan Veljanoski
-](https://www.youtube.com/watch?v=b67C_AYab0g)](https://www.youtube.com/watch?v=b67C_AYab0g "Vaex: 1 billion rows, 1 laptop, serious data science  | PyGrunn 2019 | Jovan Veljanoski
+](https://img.youtube.com/vi/b67C_AYab0g/0.jpg)](https://www.youtube.com/watch?v=b67C_AYab0g "Vaex: 1 billion rows, 1 laptop, serious data science  | PyGrunn 2019 | Jovan Veljanoski
 ")
 
 ## Slides

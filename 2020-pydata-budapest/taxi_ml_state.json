@@ -9,19 +9,19 @@
     "pickup_time": "(dt_hour(pickup_datetime) + (dt_minute(pickup_datetime) / 60.0))",
     "pickup_day": "dt_dayofweek(pickup_datetime)",
     "pickup_is_weekend": "astype((pickup_day >= 5), 'int')",
-    "arc_distance": "_jit(__dropoff_latitude, __pickup_longitude, __pickup_latitude, __dropoff_longitude)",
-    "direction_angle": "_jit_1(__dropoff_latitude, __pickup_longitude, __pickup_latitude, __dropoff_longitude)",
-    "PCA_0": "(pickup_longitude - -73.9806109361281) * 0.5991683043978732 + (pickup_latitude - 40.75166597207298) * 0.8006230967221577",
-    "PCA_1": "(pickup_longitude - -73.9806109361281) * -0.8006230967221577 + (pickup_latitude - 40.75166597207298) * 0.5991683043978732",
-    "PCA_2": "(dropoff_longitude - -73.97893097347409) * 0.5601005117034548 + (dropoff_latitude - 40.752160151590424) * 0.8284246596942465",
-    "PCA_3": "(dropoff_longitude - -73.97893097347409) * -0.8284246596942465 + (dropoff_latitude - 40.752160151590424) * 0.5601005117034548",
+    "arc_distance": "_jit(__pickup_latitude, __pickup_longitude, __dropoff_latitude, __dropoff_longitude)",
+    "direction_angle": "_jit_1(__dropoff_longitude, __pickup_longitude, __dropoff_latitude, __pickup_latitude)",
+    "PCA_0": "(pickup_longitude - -73.9806109361281) * 0.5991687373455696 + (pickup_latitude - 40.75166597207298) * 0.8006227727136643",
+    "PCA_1": "(pickup_longitude - -73.9806109361281) * -0.8006227727136643 + (pickup_latitude - 40.75166597207298) * 0.5991687373455696",
+    "PCA_2": "(dropoff_longitude - -73.97893097347409) * 0.5601005594705609 + (dropoff_latitude - 40.752160151590424) * 0.8284246273987541",
+    "PCA_3": "(dropoff_longitude - -73.97893097347409) * -0.8284246273987541 + (dropoff_latitude - 40.752160151590424) * 0.5601005594705609",
     "pickup_time_x": "cos(((6.283185307179586 * pickup_time) / 24))",
     "pickup_time_y": "sin(((6.283185307179586 * pickup_time) / 24))",
     "pickup_day_x": "cos(((6.283185307179586 * pickup_day) / 7))",
     "pickup_day_y": "sin(((6.283185307179586 * pickup_day) / 7))",
     "direction_angle_x": "cos(((6.283185307179586 * direction_angle) / 360))",
     "direction_angle_y": "sin(((6.283185307179586 * direction_angle) / 360))",
-    "standard_scaled_arc_distance": "((arc_distance - 1.1671747207121483) / 0.9004664861726895)",
+    "standard_scaled_arc_distance": "((arc_distance - 1.16717472071215) / 0.9004664861726833)",
     "predicted_duration_min": "incremental_prediction_function(PCA_0, PCA_1, PCA_2, PCA_3, standard_scaled_arc_distance, pickup_time_x, pickup_day_x, direction_angle_x, pickup_time_y, pickup_day_y, direction_angle_y, pickup_is_weekend)",
     "pred_final": "clip(predicted_duration_min, 3, 25)"
   },
@@ -109,9 +109,9 @@
       "state": {
         "expression": "((2 * arctan2(sqrt(((sin(((((dropoff_longitude - pickup_longitude) / 2) * 3.141592653589793) / 180)) ** 2) + ((cos(((pickup_longitude * 3.141592653589793) / 180)) * cos(((dropoff_longitude * 3.141592653589793) / 180))) * (sin(((((dropoff_latitude - pickup_latitude) / 2) * 3.141592653589793) / 180)) ** 2)))), sqrt((1 - ((sin(((((dropoff_longitude - pickup_longitude) / 2) * 3.141592653589793) / 180)) ** 2) + ((cos(((pickup_longitude * 3.141592653589793) / 180)) * cos(((dropoff_longitude * 3.141592653589793) / 180))) * (sin(((((dropoff_latitude - pickup_latitude) / 2) * 3.141592653589793) / 180)) ** 2))))))) * 3958.8)",
         "arguments": [
-          "dropoff_latitude",
-          "pickup_longitude",
           "pickup_latitude",
+          "pickup_longitude",
+          "dropoff_latitude",
           "dropoff_longitude"
         ],
         "argument_dtypes": [
@@ -129,10 +129,10 @@
       "state": {
         "expression": "rad2deg(arctan2((dropoff_longitude - pickup_longitude), (dropoff_latitude - pickup_latitude)))",
         "arguments": [
-          "dropoff_latitude",
+          "dropoff_longitude",
           "pickup_longitude",
-          "pickup_latitude",
-          "dropoff_longitude"
+          "dropoff_latitude",
+          "pickup_latitude"
         ],
         "argument_dtypes": [
           "float32",
@@ -162,7 +162,7 @@
           "direction_angle_y",
           "pickup_is_weekend"
         ],
-        "model": "gANjc2tsZWFybi5saW5lYXJfbW9kZWwuX3N0b2NoYXN0aWNfZ3JhZGllbnQKU0dEUmVncmVzc29y\nCnEAKYFxAX1xAihYBAAAAGxvc3NxA1gMAAAAc3F1YXJlZF9sb3NzcQRYBwAAAHBlbmFsdHlxBVgC\nAAAAbDJxBlgNAAAAbGVhcm5pbmdfcmF0ZXEHWAgAAABjb25zdGFudHEIWAcAAABlcHNpbG9ucQlH\nP7mZmZmZmZpYBQAAAGFscGhhcQpHPxo24uscQy1YAQAAAENxC0c/8AAAAAAAAFgIAAAAbDFfcmF0\naW9xDEc/wzMzMzMzM1gNAAAAZml0X2ludGVyY2VwdHENiFgHAAAAc2h1ZmZsZXEOiFgMAAAAcmFu\nZG9tX3N0YXRlcQ9OWAcAAAB2ZXJib3NlcRBLAFgEAAAAZXRhMHERRz8aNuLrHEMtWAcAAABwb3dl\ncl90cRJHP9AAAAAAAABYDgAAAGVhcmx5X3N0b3BwaW5ncROJWBMAAAB2YWxpZGF0aW9uX2ZyYWN0\naW9ucRRHP7mZmZmZmZpYEAAAAG5faXRlcl9ub19jaGFuZ2VxFUsFWAoAAAB3YXJtX3N0YXJ0cRaJ\nWAcAAABhdmVyYWdlcReJWAgAAABtYXhfaXRlcnEYTegDWAMAAAB0b2xxGUc/UGJN0vGp/FgOAAAA\nbl9mZWF0dXJlc19pbl9xGksMWAUAAABjb2VmX3EbY251bXB5LmNvcmUubXVsdGlhcnJheQpfcmVj\nb25zdHJ1Y3QKcRxjbnVtcHkKbmRhcnJheQpxHUsAhXEeQwFicR+HcSBScSEoSwFLDIVxImNudW1w\neQpkdHlwZQpxI1gCAAAAZjhxJEsASwGHcSVScSYoSwNYAQAAADxxJ05OTkr/////Sv////9LAHRx\nKGKJQ2ADyF/TbjAjwPyvVRhD/ixAsdH+Ev27KsCHJBXqkDjhP9fxvPF2vgZAxp2xecMv8L/ymYoY\nWIvcvwvTME3i08q/nY11Gn508b+XC0QM1JfPPzupiOfmGNC/MAOzpcLlwL9xKXRxKmJYCgAAAGlu\ndGVyY2VwdF9xK2gcaB1LAIVxLGgfh3EtUnEuKEsBSwGFcS9oJolDCHblCSTGSiVAcTB0cTFiWAIA\nAAB0X3EyR0GceIkcAAAAWAcAAABuX2l0ZXJfcTNLAVgQAAAAX3NrbGVhcm5fdmVyc2lvbnE0WAYA\nAAAwLjIzLjFxNXViLg==\n",
+        "model": "gANjc2tsZWFybi5saW5lYXJfbW9kZWwuX3N0b2NoYXN0aWNfZ3JhZGllbnQKU0dEUmVncmVzc29y\nCnEAKYFxAX1xAihYBAAAAGxvc3NxA1gMAAAAc3F1YXJlZF9sb3NzcQRYBwAAAHBlbmFsdHlxBVgC\nAAAAbDJxBlgNAAAAbGVhcm5pbmdfcmF0ZXEHWAgAAABjb25zdGFudHEIWAcAAABlcHNpbG9ucQlH\nP7mZmZmZmZpYBQAAAGFscGhhcQpHPxo24uscQy1YAQAAAENxC0c/8AAAAAAAAFgIAAAAbDFfcmF0\naW9xDEc/wzMzMzMzM1gNAAAAZml0X2ludGVyY2VwdHENiFgHAAAAc2h1ZmZsZXEOiFgMAAAAcmFu\nZG9tX3N0YXRlcQ9OWAcAAAB2ZXJib3NlcRBLAFgEAAAAZXRhMHERRz8aNuLrHEMtWAcAAABwb3dl\ncl90cRJHP9AAAAAAAABYDgAAAGVhcmx5X3N0b3BwaW5ncROJWBMAAAB2YWxpZGF0aW9uX2ZyYWN0\naW9ucRRHP7mZmZmZmZpYEAAAAG5faXRlcl9ub19jaGFuZ2VxFUsFWAoAAAB3YXJtX3N0YXJ0cRaJ\nWAcAAABhdmVyYWdlcReJWAgAAABtYXhfaXRlcnEYTegDWAMAAAB0b2xxGUc/UGJN0vGp/FgOAAAA\nbl9mZWF0dXJlc19pbl9xGksMWAUAAABjb2VmX3EbY251bXB5LmNvcmUubXVsdGlhcnJheQpfcmVj\nb25zdHJ1Y3QKcRxjbnVtcHkKbmRhcnJheQpxHUsAhXEeQwFicR+HcSBScSEoSwFLDIVxImNudW1w\neQpkdHlwZQpxI1gCAAAAZjhxJEsASwGHcSVScSYoSwNYAQAAADxxJ05OTkr/////Sv////9LAHRx\nKGKJQ2Da6lAYNy4jwJe7OcKX+ixAeI2XXJa4KsCfM2K6XNXgP0lsWfU85gZAI9QNXvN577/L61yG\nmu7dv3cllEwYQsm/ezEgZSTC8b8WjWQcsSLNP/o4XXJP3M2/Sbo4OeKoyb9xKXRxKmJYCgAAAGlu\ndGVyY2VwdF9xK2gcaB1LAIVxLGgfh3EtUnEuKEsBSwGFcS9oJolDCJxns07+XCVAcTB0cTFiWAIA\nAAB0X3EyR0GceIkcAAAAWAcAAABuX2l0ZXJfcTNLAVgQAAAAX3NrbGVhcm5fdmVyc2lvbnE0WAYA\nAAAwLjIzLjFxNXViLg==\n",
         "num_epochs": 1,
         "partial_fit_kwargs": {},
         "prediction_name": "predicted_duration_min",
